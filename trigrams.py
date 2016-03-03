@@ -3,8 +3,9 @@
 import io
 import re
 import random
+import sys
 
-def init_write(fp, uw):
+def init_write(fp="sherlock_small.txt", uw=50):
     file_text = open_fileFun(fp)
     sher_dic = gen_dic(file_text)
     gen_text(uw, sher_dic)
@@ -28,7 +29,7 @@ def gen_dic(file_text):
     return new_dic
 
 def gen_text(usr_words, sher_dic):
-    first  = sher_dic.get(random.choice(sher_dic.keys()))
+    first = sher_dic.get(random.choice(sher_dic.keys()))
     second = sher_dic.get(random.choice(sher_dic.keys()))
     print first
     print second
@@ -45,9 +46,4 @@ def gen_text(usr_words, sher_dic):
             second = third
 
 if __name__ == "__main__":
-    pass
-
-
-
-
-
+    init_write(sys.argv[1:], sys.argv[2:])
