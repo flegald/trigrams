@@ -30,17 +30,17 @@ def gen_dic(file_text):
 def gen_text(usr_words, sher_dic):
     first = sher_dic.get(random.choice(sher_dic.keys()))
     second = sher_dic.get(random.choice(sher_dic.keys()))
-    story = first + second
+    story = first + " " + second
 
     for word in range(usr_words - 2):
         if sher_dic.get((first, second)):
             third = sher_dic.get((first, second))
-            story += third
+            story += " " + third
             first = second
             second = third
         else:
             third = sher_dic.get(random.choice(sher_dic.keys()))
-            story += third
+            story += " " + third
             first = second
             second = third
     print story
