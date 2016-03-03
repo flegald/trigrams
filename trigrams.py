@@ -46,4 +46,4 @@ def gen_text(usr_words, sher_dic):
             second = third
 
 if __name__ == "__main__":
-    init_write(sys.argv[1:], sys.argv[2:])
+    init_write(sys.argv[1], int(sys.argv[2]))
