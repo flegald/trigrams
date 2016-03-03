@@ -5,17 +5,20 @@ import re
 import random
 import sys
 
+
 def init_write(fp="sherlock_small.txt", uw=50):
-    file_text = open_fileFun(fp)
+    file_text = get_fileFun(fp)
     sher_dic = gen_dic(file_text)
     gen_text(uw, sher_dic)
 
 
-
-def open_fileFun(file_path):
+def get_fileFun(file_path):
+    # TODO: make sure the encoding is set on the read
     open_file = io.open(file_path, "r")
     file_text = open_file.read()
+    open_file.close()
     return file_text
+
 
 def gen_dic(file_text):
     new_dic = {}
@@ -26,6 +29,7 @@ def gen_dic(file_text):
         else:
             new_dic.update({(new_list[idx], new_list[idx + 1]): new_list[idx + 2]})
     return new_dic
+
 
 def gen_text(usr_words, sher_dic):
     first = sher_dic.get(random.choice(sher_dic.keys()))
@@ -44,6 +48,7 @@ def gen_text(usr_words, sher_dic):
             first = second
             second = third
     print story
+
 
 if __name__ == "__main__":
     init_write(sys.argv[1], int(sys.argv[2]))

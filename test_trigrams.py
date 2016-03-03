@@ -7,9 +7,9 @@ TEST_OPENFILE = {
 }
 
 @pytest.mark.parametrize("fn, result", TEST_OPENFILE)
-def test_open_fileFun(fn, result):
-    from trigrams import open_fileFun
-    assert open_fileFun(fn) == result
+def test_get_fileFun(fn, result):
+    from trigrams import get_fileFun
+    assert get_fileFun(fn) == result
 
 
 
