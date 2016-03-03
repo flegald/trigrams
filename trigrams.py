@@ -27,7 +27,9 @@ def gen_dic(file_text):
         if idx == (len(new_list) - 3):
             break
         else:
-            new_dic.update({(new_list[idx], new_list[idx + 1]): new_list[idx + 2]})
+            key = (new_list[idx], new_list[idx + 1])
+            value = new_list[idx + 2]
+            new_dic.update({key: value})
     return new_dic
 
 
